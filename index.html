@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="İsmail Aydoğdu Dijital: Google Ads, Meta Ads, GA4, GTM ve e-ticaret ölçümleme hizmetleri." />
+  <link rel="icon" type="image/png" href="assets/ismail-aydogdu-dijital-logo.png" />
+  <title>İsmail Aydoğdu Dijital | Google Ads • Meta Ads • GA4 • GTM</title>
+  <style>
+    :root{
+      --bg:#0b1020;
+      --panel:#121a2f;
+      --soft:#1a2440;
+      --text:#f7f9ff;
+      --muted:#aab4d0;
+      --accent:#6ea8fe;
+      --accent2:#7ef0c2;
+      --line:rgba(255,255,255,.09);
+      --shadow:0 20px 60px rgba(0,0,0,.28);
+      --radius:22px;
+      --max:1120px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 15% 5%, rgba(110,168,254,.16), transparent 28%),
+        radial-gradient(circle at 85% 15%, rgba(126,240,194,.10), transparent 24%),
+        var(--bg);
+      line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(calc(100% - 32px),var(--max));margin:auto}
+    header{
+      position:sticky;top:0;z-index:20;
+      backdrop-filter:blur(14px);
+      background:rgba(11,16,32,.78);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px
+    }
+    .brand{font-weight:800;letter-spacing:-.03em}
+
+    .brand-logo{
+      display:flex;align-items:center;
+      background:#fff;border-radius:12px;padding:5px 10px;
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow:0 8px 24px rgba(0,0,0,.16);
+    }
+    .brand-logo img{
+      display:block;width:245px;max-width:100%;height:auto;
+    }
+    .brand span{color:var(--accent2)}
+    nav{display:flex;gap:22px;color:var(--muted);font-size:14px}
+    nav a:hover{color:#fff}
+    .hero{
+      padding:96px 0 70px;
+      display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center
+    }
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:8px 12px;border:1px solid var(--line);border-radius:999px;
+      color:#d8e2ff;background:rgba(255,255,255,.03);font-size:14px
+    }
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--accent2);box-shadow:0 0 0 6px rgba(126,240,194,.08)}
+    h1{
+      margin:22px 0 18px;font-size:clamp(42px,7vw,76px);
+      line-height:1.02;letter-spacing:-.055em
+    }
+    .lead{font-size:18px;color:var(--muted);max-width:720px}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      min-height:48px;padding:0 18px;border-radius:14px;font-weight:700;
+      border:1px solid var(--line);transition:.2s ease
+    }
+    .btn.primary{background:linear-gradient(135deg,var(--accent),#8f7cff);color:white;border-color:transparent}
+    .btn.secondary{background:rgba(255,255,255,.03);color:#fff}
+    .btn:hover{transform:translateY(-2px)}
+    .hero-card{
+      background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));
+      border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)
+    }
+    .metric{padding:18px 0;border-bottom:1px solid var(--line)}
+    .metric:last-child{border-bottom:0}
+    .metric b{display:block;font-size:28px;letter-spacing:-.04em}
+    .metric span{color:var(--muted);font-size:14px}
+    section{padding:70px 0}
+    .section-head{max-width:760px;margin-bottom:28px}
+    .kicker{color:var(--accent2);font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:12px}
+    h2{margin:8px 0 10px;font-size:clamp(30px,4vw,46px);letter-spacing:-.04em}
+    .section-head p{color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .card{
+      background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px;
+      min-height:210px
+    }
+    .card .icon{
+      width:42px;height:42px;border-radius:12px;display:grid;place-items:center;
+      background:var(--soft);margin-bottom:18px;font-size:20px
+    }
+    .card h3{margin:0 0 8px;font-size:18px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+    .about{
+      display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:start
+    }
+    .about-box{
+      background:linear-gradient(160deg,rgba(110,168,254,.10),rgba(126,240,194,.05));
+      border:1px solid var(--line);border-radius:var(--radius);padding:28px
+    }
+    .about-list{display:grid;gap:14px}
+    .about-list div{
+      display:flex;gap:12px;align-items:flex-start;color:var(--muted)
+    }
+    .check{
+      flex:0 0 24px;width:24px;height:24px;border-radius:50%;
+      display:grid;place-items:center;background:rgba(126,240,194,.12);color:var(--accent2);font-weight:900
+    }
+
+    .portfolio-grid{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:18px
+    }
+    .project-card{
+      overflow:hidden;border:1px solid var(--line);border-radius:20px;
+      background:var(--panel);box-shadow:0 14px 36px rgba(0,0,0,.16);
+      display:flex;flex-direction:column
+    }
+    .project-media{
+      display:flex;align-items:center;justify-content:center;
+      height:280px;background:#f4f6f9;border-bottom:1px solid var(--line);
+      padding:12px
+    }
+    .project-media img{
+      display:block;width:100%;height:100%;object-fit:contain;border-radius:10px
+    }
+    .project-body{padding:20px;display:flex;flex-direction:column;gap:10px;flex:1}
+    .project-tags{display:flex;flex-wrap:wrap;gap:7px}
+    .tag{
+      font-size:12px;font-weight:700;color:#dbe7ff;background:rgba(110,168,254,.10);
+      border:1px solid rgba(110,168,254,.18);border-radius:999px;padding:5px 9px
+    }
+    .project-card h3{margin:0;font-size:19px;letter-spacing:-.02em}
+    .project-card p{margin:0;color:var(--muted);font-size:14px}
+    .project-link{
+      margin-top:auto;padding-top:6px;color:var(--accent2);font-weight:700;font-size:14px
+    }
+
+    .project-placeholder{
+      width:100%;height:100%;border-radius:12px;
+      display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;
+      padding:24px;
+      background:
+        radial-gradient(circle at 85% 15%, rgba(126,240,194,.20), transparent 24%),
+        linear-gradient(135deg,#111a30,#17223d);
+      color:white;
+      position:relative;overflow:hidden
+    }
+    .project-placeholder:before{
+      content:"";position:absolute;inset:18px 18px auto auto;width:86px;height:86px;
+      border:1px solid rgba(255,255,255,.10);border-radius:18px;transform:rotate(12deg)
+    }
+    .project-placeholder small{
+      color:#aab9db;font-weight:700;letter-spacing:.08em;text-transform:uppercase
+    }
+    .project-placeholder strong{
+      margin-top:8px;font-size:26px;line-height:1.08;letter-spacing:-.03em;max-width:92%
+    }
+
+    .process{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .step{
+      padding:24px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.025)
+    }
+    .step strong{display:block;font-size:13px;color:var(--accent);margin-bottom:10px}
+    .step h3{margin:0 0 6px}
+    .step p{margin:0;color:var(--muted);font-size:14px}
+    .cta{
+      padding:34px;border-radius:var(--radius);border:1px solid var(--line);
+      background:linear-gradient(135deg,rgba(110,168,254,.14),rgba(126,240,194,.08));
+      display:flex;justify-content:space-between;gap:24px;align-items:center
+    }
+    .cta p{margin:6px 0 0;color:var(--muted)}
+    footer{padding:28px 0 42px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+    .mobile-menu{display:none}
+    @media (max-width:900px){
+      nav{display:none}
+      .hero,.about{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .process{grid-template-columns:1fr}
+      .portfolio-grid{grid-template-columns:1fr}
+      .hero{padding-top:70px}
+    }
+    @media (max-width:600px){
+      .brand-logo img{width:190px}
+      .nav{height:68px}
+      .grid{grid-template-columns:1fr}
+      .cta{align-items:flex-start;flex-direction:column}
+      h1{font-size:46px}
+      .hero-card{padding:22px}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand-logo" href="#top" aria-label="İsmail Aydoğdu Dijital ana sayfa">
+      <img src="assets/ismail-aydogdu-dijital-logo.png" alt="İsmail Aydoğdu Dijital">
+    </a>
+    <nav>
+      <a href="#hizmetler">Hizmetler</a>
+      <a href="#hakkimda">Hakkımda</a>
+      <a href="#portfoy">Portföy</a>
+      <a href="#surec">Çalışma Süreci</a>
+      <a href="#iletisim">İletişim</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <div class="eyebrow"><span class="dot"></span> İsmail Aydoğdu Dijital</div>
+      <h1>İsmail Aydoğdu Dijital</h1>
+      <p style="font-size:20px;font-weight:700;letter-spacing:.02em;margin:-4px 0 18px;color:#dfe7ff;">Google Ads • Meta Ads • GA4 • GTM</p>
+      <p class="lead">
+        Google Ads, Meta Ads, GA4 ve GTM tarafında e-ticaret ve lead odaklı
+        hesapların kurulum, ölçümleme ve optimizasyon süreçlerini yönetiyorum.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="#iletisim">İletişime Geç</a>
+        <a class="btn secondary" href="#hizmetler">Hizmetleri Gör</a>
+      </div>
+    </div>
+
+    <aside class="hero-card">
+      <div class="metric">
+        <b>Google Ads</b>
+        <span>Arama, performans ve dönüşüm odaklı kampanya yönetimi</span>
+      </div>
+      <div class="metric">
+        <b>Meta Ads</b>
+        <span>Satış ve lead odaklı Facebook & Instagram reklamları</span>
+      </div>
+      <div class="metric">
+        <b>GA4 + GTM</b>
+        <span>Sağlıklı veri, doğru dönüşüm takibi ve ölçümleme</span>
+      </div>
+    </aside>
+  </div>
+
+  <section id="hizmetler">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Hizmetler</div>
+        <h2>İhtiyacınız olan dijital reklam altyapısı.</h2>
+        <p>Kurulumdan optimizasyona kadar sade, ölçülebilir ve sürdürülebilir bir çalışma modeli.</p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="icon">G</div>
+          <h3>Google Ads</h3>
+          <p>Arama kampanyaları, dönüşüm hedefleri, teklif stratejileri, negatif kelimeler ve düzenli optimizasyon.</p>
+        </article>
+        <article class="card">
+          <div class="icon">M</div>
+          <h3>Meta Ads</h3>
+          <p>Facebook ve Instagram için satış, lead ve yeniden hedefleme kampanyalarının kurulumu ve yönetimi.</p>
+        </article>
+        <article class="card">
+          <div class="icon">GA</div>
+          <h3>GA4 & GTM</h3>
+          <p>Etkinlik, form, WhatsApp, satın alma ve e-ticaret dönüşümlerinin doğru şekilde ölçümlenmesi.</p>
+        </article>
+        <article class="card">
+          <div class="icon">E</div>
+          <h3>E-Ticaret Ölçümleme</h3>
+          <p>Shopify, WooCommerce, İkas ve benzeri altyapılarda reklam-veri ilişkisinin sağlıklı kurulması.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="hakkimda">
+    <div class="wrap about">
+      <div class="section-head">
+        <div class="kicker">Hakkımda</div>
+        <h2>Reklamı açıp bırakmak yerine veriyi takip ederim.</h2>
+        <p>
+          Amacım yalnızca kampanya yayına almak değil; ölçümleme altyapısını kontrol etmek,
+          doğru veriyi okumak ve sonuçlara göre düzenli aksiyon almak.
+        </p>
+      </div>
+
+      <div class="about-box">
+        <div class="about-list">
+          <div><span class="check">✓</span><span>Dönüşüm ve satış odaklı kampanya yaklaşımı</span></div>
+          <div><span class="check">✓</span><span>GA4 ve Google Tag Manager ile ölçümleme altyapısı</span></div>
+          <div><span class="check">✓</span><span>E-ticaret hesaplarında düzenli optimizasyon ve raporlama</span></div>
+          <div><span class="check">✓</span><span>Net iletişim ve sürdürülebilir çalışma düzeni</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="portfoy">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Portföy</div>
+        <h2>Öne çıkan çalışmalar.</h2>
+        <p>Ölçümleme, dönüşüm takibi ve reklam altyapısı tarafında tamamlanan bazı uygulamalar.</p>
+      </div>
+
+      <div class="portfolio-grid">
+        <article class="project-card">
+          <a class="project-media" href="assets/bonte-hali.webp" target="_blank" rel="noopener">
+            <img src="assets/bonte-hali.webp" alt="Bonte Halı IdeaSoft e-ticaret ölçümleme ve reklam altyapısı çalışması" loading="lazy">
+          </a>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">GA4</span><span class="tag">GTM</span><span class="tag">Meta Pixel</span><span class="tag">CAPI</span>
+            </div>
+            <h3>Bonte Halı — E-Ticaret Ölçümleme Altyapısı</h3>
+            <p>IdeaSoft altyapısında Pixel, Conversions API, GA4 e-ticaret eventleri, Merchant Center ve temel ölçümleme kontrolleri.</p>
+            <a class="project-link" href="assets/bonte-hali.webp" target="_blank" rel="noopener">Çalışmayı büyüt →</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <a class="project-media" href="assets/pinterest-gtm-case.webp" target="_blank" rel="noopener">
+            <img src="assets/pinterest-gtm-case.webp" alt="GTM ile Pinterest Tag ve e-ticaret dönüşüm takibi vaka çalışması" loading="lazy">
+          </a>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">GTM</span><span class="tag">Pinterest Tag</span><span class="tag">E-Ticaret</span>
+            </div>
+            <h3>Pinterest Tag — Dinamik E-Ticaret Takibi</h3>
+            <p>PageVisit, AddToCart ve Checkout eventlerinin dinamik değerlerle GTM üzerinden yapılandırılması ve doğrulanması.</p>
+            <a class="project-link" href="assets/pinterest-gtm-case.webp" target="_blank" rel="noopener">Çalışmayı büyüt →</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <a class="project-media" href="assets/populer-peyzaj-capi.webp" target="_blank" rel="noopener">
+            <img src="assets/populer-peyzaj-capi.webp" alt="Popüler Peyzaj GTM ve Meta Conversions API entegrasyonu" loading="lazy">
+          </a>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">GTM</span><span class="tag">GA4</span><span class="tag">Meta CAPI</span><span class="tag">WhatsApp</span>
+            </div>
+            <h3>Popüler Peyzaj — GTM & Meta CAPI</h3>
+            <p>WhatsApp dönüşümleri, GA4 ölçümleme ve Meta Conversions API tarafında sunucu destekli veri akışı kurulumu.</p>
+            <a class="project-link" href="assets/populer-peyzaj-capi.webp" target="_blank" rel="noopener">Çalışmayı büyüt →</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-media">
+            <div class="project-placeholder">
+              <small>Dönüşüm Ölçümleme</small>
+              <strong>Termokupl<br>Google Ads</strong>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">Google Ads</span><span class="tag">Dönüşüm Takibi</span><span class="tag">GTM</span>
+            </div>
+            <h3>Termokupl — Google Ads Dönüşümleri</h3>
+            <p>Google Ads tarafında dönüşüm aksiyonlarının kurulumu, izleme yapısının doğrulanması ve reklam optimizasyonuna uygun ölçüm altyapısının hazırlanması.</p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-media">
+            <div class="project-placeholder">
+              <small>E-Ticaret Ölçümleme</small>
+              <strong>Softr<br>Dönüşümleri</strong>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">GA4</span><span class="tag">GTM</span><span class="tag">Consent Mode v2</span><span class="tag">E-Ticaret</span>
+            </div>
+            <h3>Softr — E-Ticaret Dönüşüm Takibi</h3>
+            <p>GA4 ve GTM tarafında e-ticaret dönüşümlerinin kurulumu, event akışlarının kontrolü ve Consent Mode v2 ile ölçümleme yapısının düzenlenmesi.</p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-media">
+            <div class="project-placeholder">
+              <small>Ticimax Altyapı</small>
+              <strong>Marka Saatçilik<br>Dönüşümleri</strong>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">Ticimax</span><span class="tag">GTM</span><span class="tag">GA4</span><span class="tag">Dönüşüm Takibi</span>
+            </div>
+            <h3>Marka Saatçilik — Ticimax Dönüşümleri</h3>
+            <p>Ticimax altyapısında e-ticaret dönüşüm takibi, ölçümleme eventleri ve reklam platformlarına aktarılacak dönüşüm verilerinin yapılandırılması.</p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-media">
+            <div class="project-placeholder">
+              <small>WooCommerce + Meta</small>
+              <strong>Roksi Diyet<br>Ölçümleme & Reklam</strong>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">WooCommerce</span><span class="tag">Meta Ads</span><span class="tag">CAPI</span><span class="tag">Dönüşüm Takibi</span>
+            </div>
+            <h3>Roksi Diyet — WooCommerce & Meta</h3>
+            <p>WooCommerce dönüşüm takibi ve Meta Conversions API entegrasyonu kuruldu; Meta reklam kampanyalarının yönetim ve optimizasyon süreçleri yürütülüyor.</p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-media">
+            <div class="project-placeholder">
+              <small>Mobil Uygulama Reklamları</small>
+              <strong>Maneet App<br>Google Ads ROAS</strong>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">Google Ads</span><span class="tag">Mobil Uygulama</span><span class="tag">ROAS</span><span class="tag">Optimizasyon</span>
+            </div>
+            <h3>Maneet App — Google Ads ROAS Yönetimi</h3>
+            <p>Mobil uygulama reklamlarında Google Ads tarafındaki ROAS odaklı kampanya yönetimi, bütçe takibi ve performans optimizasyon süreçleri yürütüldü.</p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-media">
+            <div class="project-placeholder">
+              <small>Mobil Uygulama Reklamları</small>
+              <strong>Meetica App<br>Google Ads ROAS</strong>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">Google Ads</span><span class="tag">Mobil Uygulama</span><span class="tag">ROAS</span><span class="tag">Optimizasyon</span>
+            </div>
+            <h3>Meetica App — Google Ads ROAS Yönetimi</h3>
+            <p>Google Ads mobil uygulama kampanyalarında ROAS odaklı performans takibi, bütçe optimizasyonu ve kampanya iyileştirme süreçleri yönetildi.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="actions" style="margin-top:24px">
+        <a class="btn secondary" href="https://bionluk.com/digitalbyismail" target="_blank" rel="noopener">Tüm Bionluk Portföyünü Gör</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="surec">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Çalışma Süreci</div>
+        <h2>Basit, şeffaf, ölçülebilir.</h2>
+      </div>
+      <div class="process">
+        <div class="step">
+          <strong>01 — ANALİZ</strong>
+          <h3>Mevcut durumu incelerim</h3>
+          <p>Reklam hesabı, dönüşümler, hedefler ve ölçümleme yapısı kontrol edilir.</p>
+        </div>
+        <div class="step">
+          <strong>02 — UYGULAMA</strong>
+          <h3>Gerekli düzenlemeleri yaparım</h3>
+          <p>Kampanyalar, hedeflemeler, dönüşüm yapıları ve optimizasyon adımları uygulanır.</p>
+        </div>
+        <div class="step">
+          <strong>03 — OPTİMİZASYON</strong>
+          <h3>Veriye göre geliştiririm</h3>
+          <p>Performans düzenli takip edilir; bütçe ve kampanya kararları gerçek veriye göre alınır.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="iletisim">
+    <div class="wrap">
+      <div class="cta">
+        <div>
+          <div class="kicker">İletişim</div>
+          <h2 style="margin-bottom:0">Projenizi konuşalım.</h2>
+          <p>WhatsApp, e-posta veya Bionluk üzerinden ulaşabilirsiniz.</p>
+          <p style="margin-top:12px">
+            <strong>E-posta:</strong> <a href="mailto:digitalbyismail35@gmail.com">digitalbyismail35@gmail.com</a><br>
+            <strong>WhatsApp:</strong> <a href="https://wa.me/905555437477?text=Merhaba%20%C4%B0smail%20Bey%2C%20dijital%20pazarlama%20hizmetleriniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">0555 543 74 77</a>
+          </p>
+        </div>
+        <div class="actions" style="margin-top:0">
+          <a class="btn primary" href="https://wa.me/905555437477?text=Merhaba%20%C4%B0smail%20Bey%2C%20dijital%20pazarlama%20hizmetleriniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">WhatsApp'tan Yaz</a>
+          <a class="btn secondary" href="mailto:digitalbyismail35@gmail.com">E-posta Gönder</a>
+          <a class="btn secondary" href="https://bionluk.com/digitalbyismail" target="_blank" rel="noopener">Bionluk Profilim</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 İsmail Aydoğdu Dijital. Tüm hakları saklıdır.
+    <span style="float:right">
+      <a href="mailto:digitalbyismail35@gmail.com">E-posta</a> &nbsp;•&nbsp;
+      <a href="https://wa.me/905555437477?text=Merhaba%20%C4%B0smail%20Bey%2C%20dijital%20pazarlama%20hizmetleriniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">WhatsApp</a> &nbsp;•&nbsp;
+      <a href="https://bionluk.com/digitalbyismail" target="_blank" rel="noopener">Bionluk</a>
+    </span></div>
+</footer>
+
+</body>
+</html>
